@@ -6,9 +6,9 @@ import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import bcrypt from 'bcryptjs';
-import ws from 'ws';
+import {WebSocketServer} from 'ws';
 
-dotenv.config({ path: './api/.env' }); // Load environment variables
+dotenv.config(); 
 
 const app = express();
 const PORT = process.env.PORT || 4002;
@@ -27,6 +27,7 @@ mongoose.connect(MONGO_URL)
 
 // Middleware
 app.use(express.json());
+
 app.use(cors({
   credentials: true,
   origin: clientURL, // Allows requests from client URL
@@ -104,8 +105,27 @@ const server = app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-const wss = new ws.WebSocketServer({server});
+const wss = new WebSocketServer({server});
 
-wss.on('connection', (connection) => {
-    console.log('connected');
+wss.on('connection', (connection,req) => {
+    const cookies = req.headers.cookie;
+    if(cookies){
+        const tokenCookieString = cookies.split(';').find(str => str.startsWith('token='));
+        if(tokenCookieString){
+            const token = tokenCookieString.split("=")[1];
+            if(token){
+                jwt.verify(token, jwtSecret, {}, (err, userData) => {
+                    if(err) throw err;
+                    const {userId, username} = userData;
+                    connection.userId = userId;
+                    connection.username = username;
+                });
+            }
+        }    
+    }
+    [...wss.clients].forEach(client=>{
+        client.send(JSON.stringify({
+            online: [...wss.clients].map(c => ({userId: c.userId, username: c.username})),
+            }));
+    });
 });
