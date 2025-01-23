@@ -4,6 +4,7 @@ import ChatWindow from '../components/ChatWindow/ChatWindow';
 import mockUsers from "../utils/MockUsers.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import ChatWindowModal from "../features/ChatWindowModal.jsx";
 
 const HomePage = () => {
 
@@ -43,29 +44,13 @@ const HomePage = () => {
                 {...(isSmallScreen ? { onUserClick: toggleChatModal } : { onUserClick: () => { } })}
             />
 
-
-
             {/* Chat Window for large screens */}
             {!isSmallScreen && (
                 <ChatWindow className="flex-1 h-full" selectedUser={selectedUser} />
             )}
 
-
-
             {/* Chat Modal for medium and smaller screens */}
-            {isChatOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="w-full md:w-2/3 lg:w-1/2 rounded-lg shadow-lg">
-                        <button
-                            onClick={toggleChatModal}
-                            className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
-                        >
-                            <FontAwesomeIcon icon={faXmark} className="size-5"/>
-                        </button>
-                        <ChatWindow className="h-full" selectedUser={selectedUser} />
-                    </div>
-                </div>
-            )}
+            { isChatOpen && <ChatWindowModal toggleChatModal={toggleChatModal} selectedUser={selectedUser}/> }
         </div>
     );
 };
