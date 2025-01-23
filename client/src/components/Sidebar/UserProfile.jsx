@@ -22,7 +22,7 @@ const UserProfile = () => {
     return (
         <div className="p-3 border-b bg-white flex items-center justify-between md:p-4">
             {/* User Avatar */}
-            <div className="flex items-center">
+            <a href="/login"><div className="flex items-center">
                 <img
                     src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png"
                     alt="User Avatar"
@@ -31,7 +31,7 @@ const UserProfile = () => {
                 <span className="ml-2 md:ml-3 font-semibold text-gray-800 text-sm md:text-base">
                     Uday Kalyan
                 </span>
-            </div>
+            </div></a>
 
             {/* Action Buttons */}
             <div className="flex items-center space-x-2 md:space-x-3 text-gray-600">
