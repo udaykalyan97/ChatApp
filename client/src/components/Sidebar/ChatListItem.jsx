@@ -8,7 +8,7 @@ const ChatListItem = ({ user, onClick }) => {
       >
         {/* User Avatar */}
         <img
-          src={avatar || "https://www.pngmart.com/files/23/Profile-PNG-Photo.png"}
+          src={avatar}
           alt={`${name}'s Avatar`}
           className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-4"
         />
