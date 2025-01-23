@@ -10,29 +10,28 @@ const MessageInput = () => {
         setShowModal(true);
     };
 
-    
+
 
     return (
-        <div className="p-4 bg-white shadow-md flex items-center flex-col md:flex-row md:justify-between space-y-4 md:space-y-0">
+        <div className="p-4 bg-white shadow-md flex items-center flex-row space-y-0 md:justify-between gap-4">
             <FontAwesomeIcon
-                className="p-2 cursor-pointer size-5"
+                className="p-2 cursor-pointer text-lg"
                 icon={faPlus}
                 onClick={openModal}
             />
             <input
                 type="text"
                 placeholder="Type a message..."
-                className="flex-1 p-2 border rounded-full outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-auto"
+                className="flex-1 p-2 border rounded-full outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="ml-3 mt-2 md:mt-0 bg-blue-500 text-white px-4 py-2 rounded-full w-full md:w-auto">
-            <FontAwesomeIcon
-                icon={faPaperPlane}
-            />
+            <button className="ml-3 bg-blue-500 text-white px-4 py-2 rounded-full">
+                <FontAwesomeIcon icon={faPaperPlane} />
             </button>
 
             {/* Modal */}
             {showModal && <AttachmentsModal setShowModal={setShowModal} />}
         </div>
+
     );
 };
 

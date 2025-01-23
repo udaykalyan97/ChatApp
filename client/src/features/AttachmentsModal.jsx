@@ -14,7 +14,7 @@ const AttachmentsModal = ({setShowModal}) => {
                 onClick={closeModal}
             >
                 <div
-                    className="bg-white rounded-lg shadow-lg p-6 w-96"
+                    className="bg-white rounded-lg shadow-lg p-6 w-64 absolute left-1/4 bottom-14"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <h2 className="text-xl font-bold mb-4">Select Option</h2>

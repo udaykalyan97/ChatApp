@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Sidebar from '../components/SideBar/SideBar';
 import ChatWindow from '../components/ChatWindow/ChatWindow';
 import mockUsers from "../utils/MockUsers.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import ChatWindowModal from "../features/ChatWindowModal.jsx";
 
 const HomePage = () => {
