@@ -15,7 +15,7 @@ const MessageInput = () => {
     return (
         <div className="p-4 bg-white shadow-md flex items-center flex-row space-y-0 md:justify-between gap-4">
             <FontAwesomeIcon
-                className="p-2 cursor-pointer text-lg"
+                className="p-2 cursor-pointer text-lg hover:bg-gray-200 hover:rounded-full"
                 icon={faPlus}
                 onClick={openModal}
             />
