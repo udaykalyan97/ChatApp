@@ -16,7 +16,7 @@ const SettingsModal = ({setSettingsModal}) => {
                 >
                     <h2 className="text-xl font-bold mb-4">Select Option</h2>
                     <ul className="space-y-2">
-                        <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">Edit Profile</li>
+                        <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">Profile</li>
                         <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">Account</li>
                         <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">Chats</li>
                     </ul>

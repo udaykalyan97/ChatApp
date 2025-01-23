@@ -2,11 +2,14 @@ import ChatListItem from './ChatListItem';
 import SearchBar from './SearchBar';
 import UserProfile from './UserProfile';
 
-const Sidebar = () => {
-    const messageList = new Array(5).fill(0);
+const Sidebar = ({ className, onUserClick, users, setSelectedUser }) => {
+
+    const handleUserClick = (user) => {
+        setSelectedUser(user);
+      };
 
     return (
-        <div className="w-full md:w-1/3 h-screen bg-gray-100 border-r flex flex-col">
+        <div className={`${className} w-full md:w-1/3 h-screen bg-gray-100 border-r flex flex-col`}>
             {/* User Profile */}
             <UserProfile className="p-3 border-b" />
 
@@ -15,8 +18,15 @@ const Sidebar = () => {
 
             {/* Chat List */}
             <div className="flex-1 overflow-y-auto">
-                {messageList.map((item) => (
-                    <ChatListItem key={item} />
+                {users.map((user) => (
+                    <ChatListItem
+                        key={user.id}                                       // Unique key
+                        user={user}                                         // Pass user data as props
+                        onClick={() =>{
+                            onUserClick(user);
+                            handleUserClick(user);
+                        }}                   // Trigger callback on click
+                    />
                 ))}
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import AttachmentsModal from "../../features/AttachmentsModal";
 
 const MessageInput = () => {
@@ -24,8 +24,10 @@ const MessageInput = () => {
                 placeholder="Type a message..."
                 className="flex-1 p-2 border rounded-full outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-auto"
             />
-            <button className="mt-2 md:mt-0 bg-blue-500 text-white px-4 py-2 rounded-full w-full md:w-auto">
-                Send
+            <button className="ml-3 mt-2 md:mt-0 bg-blue-500 text-white px-4 py-2 rounded-full w-full md:w-auto">
+            <FontAwesomeIcon
+                icon={faPaperPlane}
+            />
             </button>
 
             {/* Modal */}
