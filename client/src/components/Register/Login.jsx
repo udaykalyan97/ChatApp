@@ -77,7 +77,7 @@ const Login = ({login}) => {
               aria-label="Login with Google"
             >
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                src="https://freelogopng.com/images/all_img/1657952440google-logo-png-transparent.png"
                 alt="Google Logo"
                 className="w-6 h-6"
               />
@@ -88,7 +88,7 @@ const Login = ({login}) => {
               aria-label="Login with GitHub"
             >
               <img
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                src="https://pngimg.com/uploads/github/github_PNG40.png"
                 alt="GitHub Logo"
                 className="w-6 h-6"
               />

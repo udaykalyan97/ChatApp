@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { validateForm } from '../../utils/validateForm';
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const handleSignUp = (event) => {
     event.preventDefault();
-    console.log('Signing up...');
+    const validationErrors = validateForm(formData);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      console.log('Signing up with:', formData);
+    }
   };
 
   return (
@@ -25,11 +45,19 @@ const SignUp = () => {
               type="text"
               id="name"
               name="name"
-              required
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Enter your name"
-              className="w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full mt-1 p-2 border ${
+                errors.name ? 'border-red-500' : 'border-gray-300'
+              } dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
             />
+            {errors.name && (
+              <p className="text-sm text-red-500 mt-1">{errors.name}</p>
+            )}
           </div>
+
+
           {/* Email Input */}
           <div>
             <label
@@ -42,11 +70,19 @@ const SignUp = () => {
               type="email"
               id="email"
               name="email"
-              required
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Enter your email"
-              className="w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full mt-1 p-2 border ${
+                errors.email ? 'border-red-500' : 'border-gray-300'
+              } dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
             />
+            {errors.email && (
+              <p className="text-sm text-red-500 mt-1">{errors.email}</p>
+            )}
           </div>
+
+
           {/* Password Input */}
           <div>
             <label
@@ -59,11 +95,19 @@ const SignUp = () => {
               type="password"
               id="password"
               name="password"
-              required
+              value={formData.password}
+              onChange={handleChange}
               placeholder="Enter your password"
-              className="w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full mt-1 p-2 border ${
+                errors.password ? 'border-red-500' : 'border-gray-300'
+              } dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
             />
+            {errors.password && (
+              <p className="text-sm text-red-500 mt-1">{errors.password}</p>
+            )}
           </div>
+
+
           {/* Confirm Password Input */}
           <div>
             <label
@@ -76,11 +120,21 @@ const SignUp = () => {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
-              required
+              value={formData.confirmPassword}
+              onChange={handleChange}
               placeholder="Re-enter your password"
-              className="w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full mt-1 p-2 border ${
+                errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+              } dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
             />
+            {errors.confirmPassword && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.confirmPassword}
+              </p>
+            )}
           </div>
+
+
           {/* Sign Up Button */}
           <button
             type="submit"
@@ -89,45 +143,6 @@ const SignUp = () => {
             Sign Up
           </button>
         </form>
-        {/* Additional Options */}
-        <div className="text-center mt-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            Already have an account?{' '}
-            <a
-              href="/login"
-              className="text-blue-500 hover:underline dark:text-blue-400"
-            >
-              Login
-            </a>
-          </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-            Or sign up with:
-          </p>
-          <div className="flex justify-center space-x-4 mt-2">
-            <button
-              type="button"
-              className="bg-gray-100 dark:bg-gray-700 p-2 rounded-full shadow-md hover:shadow-lg transition-all"
-              aria-label="Sign up with Google"
-            >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                alt="Google Logo"
-                className="w-6 h-6"
-              />
-            </button>
-            <button
-              type="button"
-              className="bg-gray-100 dark:bg-gray-700 p-2 rounded-full shadow-md hover:shadow-lg transition-all"
-              aria-label="Sign up with GitHub"
-            >
-              <img
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                alt="GitHub Logo"
-                className="w-6 h-6"
-              />
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
