@@ -15,10 +15,10 @@ const ChatListItem = ({ user, onClick }) => {
   
         {/* Chat Details */}
         <div className="flex-1 min-w-0">
-          <h4 className="font-semibold text-gray-800 text-sm sm:text-base">
+          <h4 className="font-semibold text-sm sm:text-base">
             {name}
           </h4>
-          <p className="text-gray-500 text-xs sm:text-sm truncate">
+          <p className="text-xs sm:text-sm truncate">
             {messages[messages.length-1].text || "No messages yet"}
           </p>
         </div>

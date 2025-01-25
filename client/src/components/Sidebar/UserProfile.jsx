@@ -28,13 +28,13 @@ const UserProfile = ({darkMode}) => {
                     alt="User Avatar"
                     className="w-10 h-10 md:w-12 md:h-12 rounded-full"
                 />
-                <span className="ml-2 md:ml-3 font-semibold text-gray-800 text-sm md:text-base">
+                <span className="ml-2 md:ml-3 font-semibold text-sm md:text-base">
                     Uday Kalyan
                 </span>
             </div></a>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-2 md:space-x-3 text-gray-600">
+            <div className="flex items-center space-x-2 md:space-x-3">
                 <button
                     title="New Chat"
                     className="p-2 hover:bg-gray-200 rounded-full md:p-3"
