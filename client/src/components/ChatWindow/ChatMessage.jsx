@@ -2,10 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 
-const ChatMessage = ({ msg, avatar }) => {
-    const isSent = msg.status === "sent"; // true if the message is sent by user
-    const isDelivered = msg.status === "delivered"; // true if the message is delivered but not seen yet
-    const isSeen = msg.status === "seen"; // true if the message has been seen by the recipient
+const Chatmsg = ({ msg, avatar }) => {
+    const isSent = msg.status === "sent"; // true if the msg is sent by user
+    const isDelivered = msg.status === "delivered"; // true if the msg is delivered but not seen yet
+    const isSeen = msg.status === "seen"; // true if the msg has been seen by the recipient
     const sentByUser = msg.sentByUser;
 
 
@@ -13,7 +13,7 @@ const ChatMessage = ({ msg, avatar }) => {
         <div
             className={`flex items-center mb-4 ${sentByUser ? 'justify-end' : 'justify-start'} relative`}
         >
-            {/* Avatar for received messages */}
+            {/* Avatar for received msgs */}
             {!sentByUser && (
                 <img
                     src={avatar}
@@ -22,7 +22,7 @@ const ChatMessage = ({ msg, avatar }) => {
                 />
             )}
 
-            {/* Message Bubble */}
+            {/* msg Bubble */}
             <div
                 className={`max-w-xs p-3 rounded-lg ${sentByUser
                     ? 'bg-green-400 text-white rounded-br-none'
@@ -31,6 +31,23 @@ const ChatMessage = ({ msg, avatar }) => {
             >
 
                 <p>{msg.text}</p>
+                {msg.media && (
+                <>
+                  {msg.media.endsWith(".mp4") || msg.media.endsWith(".webm") ? (
+                    <video
+                      src={msg.media}
+                      controls
+                      className="mt-2 rounded-lg max-w-full"
+                    />
+                  ) : (
+                    <img
+                      src={msg.media}
+                      alt="Media"
+                      className="mt-2 rounded-lg max-w-full"
+                    />
+                  )}
+                </>
+              )}
                 <div className="flex justify-end items-center mt-1">
                     <span className="text-xs text-gray-500">{msg.timestamp}</span>
                     {sentByUser &&
@@ -61,4 +78,4 @@ const ChatMessage = ({ msg, avatar }) => {
     );
 };
 
-export default ChatMessage;
+export default Chatmsg;

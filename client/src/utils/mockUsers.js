@@ -11,6 +11,7 @@ const mockUsers = [
         timestamp: "9:00 AM",
         status: "delivered",
         sentByUser: false,
+        media: "https://jooinn.com/images/beautiful-lake-5.jpg"
       },
       {
         id: 22,
@@ -28,10 +29,11 @@ const mockUsers = [
       },
       {
         id: 24,
-        text: "Got it, see you then!",
+        text: null,               //"Got it, see you then!",
         timestamp: "10:30 AM",
         status: "seen",
         sentByUser: true,
+        media: "https://fileinfo.com/img/ss/xl/jpg_44.png",
       },
       {
         id: 25,
