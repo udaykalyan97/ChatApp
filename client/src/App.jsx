@@ -6,7 +6,7 @@ import RegisterPage from './Pages/RegisterPage';
 
 function App() {
   return (
-    <>
+    <div className="dark:bg-gray-800 dark:text-white">
       {/* <h1 className="text-center text-green-500 mt-2 text-2xl sm:text-3xl md:text-4xl">
         Chat App
       </h1> */}
@@ -20,7 +20,7 @@ function App() {
 
 </BrowserRouter>
 
-    </>
+    </div>
   );
 }
 

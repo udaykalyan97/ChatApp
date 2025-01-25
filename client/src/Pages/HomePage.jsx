@@ -44,11 +44,11 @@ const HomePage = () => {
 
             {/* Chat Window for large screens */}
             {!isSmallScreen && (
-                <ChatWindow className="flex-1 h-full" selectedUser={selectedUser} />
+                <ChatWindow className="flex-1 h-full" selectedUser={selectedUser} toggleChatModal={toggleChatModal} isSmallScreen={isSmallScreen} />
             )}
 
             {/* Chat Modal for medium and smaller screens */}
-            { isChatOpen && <ChatWindowModal toggleChatModal={toggleChatModal} selectedUser={selectedUser}/> }
+            { isChatOpen && <ChatWindowModal toggleChatModal={toggleChatModal} selectedUser={selectedUser} isSmallScreen={isSmallScreen}/> }
         </div>
     );
 };

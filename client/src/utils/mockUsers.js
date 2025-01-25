@@ -33,7 +33,7 @@ const mockUsers = [
         timestamp: "10:30 AM",
         status: "seen",
         sentByUser: true,
-        media: "https://fileinfo.com/img/ss/xl/jpg_44.png",
+        media: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
       },
       {
         id: 25,
