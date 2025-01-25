@@ -2,7 +2,7 @@ const mockUsers = [
   {
     id: 1,
     name: "Uday Kalyan",
-    avatar: "https://www.pngmart.com/files/23/Profile-PNG-Photo.png",
+    avatar: "https://www.profilebakery.com/wp-content/uploads/2023/03/Profilbild-AI.jpg",
     lastSeen: "10:45 AM",
     messages: [
       {
@@ -47,7 +47,7 @@ const mockUsers = [
   {
     id: 2,
     name: "Anjali Sharma",
-    avatar: "https://www.pngmart.com/files/23/Profile-PNG-Photo.png",
+    avatar: "https://img.freepik.com/premium-photo/headshot-photos-indian-women-dynamic-professions-occassions-indian-girl_978786-295.jpg?w=2000",
     lastSeen: "Yesterday",
     messages: [
       {
@@ -90,7 +90,7 @@ const mockUsers = [
   {
     id: 3,
     name: "John Doe",
-    avatar: "https://www.pngmart.com/files/23/Profile-PNG-Photo.png",
+    avatar: "https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000",
     lastSeen: "2 hours ago",
     messages: [
       {
@@ -133,7 +133,7 @@ const mockUsers = [
   {
     id: 4,
     name: "Emma Watson",
-    avatar: "https://www.pngmart.com/files/23/Profile-PNG-Photo.png",
+    avatar: "https://www.profilebakery.com/wp-content/uploads/2023/04/AI-Profile-Picture-400x400.jpg",
     lastSeen: "5 minutes ago",
     messages: [
       {
@@ -176,7 +176,7 @@ const mockUsers = [
   {
     id: 5,
     name: "Rahul Verma",
-    avatar: "https://www.pngmart.com/files/23/Profile-PNG-Photo.png",
+    avatar: "https://www.profilebakery.com/wp-content/uploads/2023/04/PROFILE-PICTURE-FOR-FACEBOOK.jpg",
     lastSeen: "Online",
     messages: [
       {
