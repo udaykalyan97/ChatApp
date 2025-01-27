@@ -1,14 +1,14 @@
 import './index.css';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from './components/Register/Login';
 import HomePage from './Pages/HomePage';
 import RegisterPage from './Pages/RegisterPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faToggleOff,faToggleOn } from '@fortawesome/free-solid-svg-icons';
+import { faToggleOff, faToggleOn, faBell, faExclamation } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [notifications, setNotifications] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -23,14 +23,25 @@ function App() {
           </h1>
 
           {/* Dark mode toggle button */}
-        <div>
-          <span>Dark Mode</span><button
-            onClick={toggleDarkMode}
-            className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
-          >
-            {darkMode ? <FontAwesomeIcon icon={faToggleOn} /> : <FontAwesomeIcon icon={faToggleOff} />}
-          </button>
-        </div></div>
+          <div className='flex'>
+            {notifications ?
+              <div className='mt-2 text-red-500 cursor-pointer'>
+                <FontAwesomeIcon icon={faBell} className='size-6 ' />
+                <FontAwesomeIcon icon={faExclamation} className='size-6 ml-[-10px]'/>
+              </div>
+              : <FontAwesomeIcon icon={faBell} className='p-2 size-6' />
+            }
+
+            <div className='ml-8'>
+              <span>Dark Mode</span><button
+                onClick={toggleDarkMode}
+                className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+              >
+                {darkMode ? <FontAwesomeIcon icon={faToggleOn} /> : <FontAwesomeIcon icon={faToggleOff} />}
+              </button>
+            </div>
+          </div>
+        </div>
 
         {/* Routes */}
         <BrowserRouter>

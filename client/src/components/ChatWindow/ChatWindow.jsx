@@ -8,8 +8,8 @@ const ChatWindow = ({ selectedUser, toggleChatModal, isSmallScreen, darkMode }) 
 
     
     return (
-        <div className={`w-full h-screen flex flex-col border border-blue-400 rounded-3xl`}>
-            <div className={`p-4 shadow-md border-b border-green-500 flex ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
+        <div className={`w-full h-screen flex flex-col rounded-3xl`}>
+            <div className={`p-4 shadow-md border border-green-500 rounded-3xl flex ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
                 {isSmallScreen ? <button
                     onClick={toggleChatModal}>
                     <FontAwesomeIcon icon={faArrowLeft} className="size-8 mr-3 text-black" />
