@@ -5,7 +5,7 @@ import { useState } from "react";
 import SettingsModal from "../../features/SettingsModal";
 import ChatModal from "../../features/ChatModal";
 
-const UserProfile = ({darkMode}) => {
+const UserProfile = ({darkMode, users}) => {
 
     const [chatModal, setChatModal] = useState(false);
     const [settingsModal, setSettingsModal] = useState(false);
@@ -52,7 +52,7 @@ const UserProfile = ({darkMode}) => {
 
 
             {/* Chat Modal */}
-            {chatModal && <ChatModal setChatModal={setChatModal} darkMode={darkMode}/>}
+            {chatModal && <ChatModal setChatModal={setChatModal} darkMode={darkMode} users={users}/>}
 
 
             {/* Settings Modal */}
