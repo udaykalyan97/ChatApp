@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const SettingsModal = ({setSettingsModal}) => {
+const SettingsModal = ({setSettingsModal, darkMode}) => {
 
     const navigate = useNavigate();
 
@@ -16,14 +16,13 @@ const SettingsModal = ({setSettingsModal}) => {
                 onClick={closeSettingsModal}
             >
                 <div
-                    className="bg-white rounded-lg shadow-lg p-6 w-96"
+                    className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} rounded-lg shadow-lg p-6 w-96`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <h2 className="text-xl font-bold mb-4">Select Option</h2>
                     <ul className="space-y-2">
-                        <li className="cursor-pointer hover:bg-gray-100 p-2 rounded" onClick={() => navigate('/login')}>Profile</li>
-                        <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">Account</li>
-                        <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">Chats</li>
+                        <li className="cursor-pointer hover:bg-gray-500 p-2 rounded" onClick={() => navigate('/login')}>Profile</li>
+                        <li className="cursor-pointer hover:bg-gray-500 p-2 rounded">Logout</li>
                     </ul>
                 </div>
             </div>

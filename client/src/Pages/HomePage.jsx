@@ -26,6 +26,7 @@ const HomePage = ({darkMode}) => {
     };
 
     useEffect(() => {
+        handleScreenSizeChange();
         window.addEventListener('resize', handleScreenSizeChange);
         return () => {
             window.removeEventListener('resize', handleScreenSizeChange);

@@ -1,9 +1,9 @@
-const ChatListItem = ({ user, onClick }) => {
+const ChatListItem = ({ user, onClick, darkMode}) => {
     const { name, avatar, messages, lastSeen } = user;
   
     return (
       <div
-        className="flex items-center px-4 py-3 hover:bg-gray-200 cursor-pointer"
+        className={`flex items-center px-4 py-3 ${darkMode ? 'hover:bg-green-400 hover:text-gray-600' : 'hover:bg-gray-200 cursor-pointer'}`}
         onClick={onClick}
       >
         {/* User Avatar */}

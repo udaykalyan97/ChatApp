@@ -20,6 +20,7 @@ const Sidebar = ({ className, onUserClick, users, setSelectedUser, darkMode }) =
             <div className="flex-1 overflow-y-auto">
                 {users.map((user) => (
                     <ChatListItem
+                        darkMode={darkMode}
                         key={user.id}                                       // Unique key
                         user={user}                                         // Pass user data as props
                         onClick={() =>{

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChatModal = ({setChatModal}) => {
+const ChatModal = ({setChatModal, darkMode}) => {
 
     const closeChatModal = () => {
         setChatModal(false);
@@ -14,13 +14,13 @@ const ChatModal = ({setChatModal}) => {
                 onClick={closeChatModal}
             >
                 <div
-                    className="bg-white rounded-lg shadow-lg p-6 w-96"
+                    className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} rounded-lg shadow-lg p-6 w-64`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <h2 className="text-xl font-bold mb-4">Select Option</h2>
                     <ul className="space-y-2">
-                        <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">New Chat</li>
-                        <li className="cursor-pointer hover:bg-gray-100 p-2 rounded">New Group Chat</li>
+                        <li className="cursor-pointer hover:bg-gray-500 p-2 rounded">New Chat</li>
+                        <li className="cursor-pointer hover:bg-gray-500 p-2 rounded">New Group Chat</li>
                     </ul>
                 </div>
             </div>

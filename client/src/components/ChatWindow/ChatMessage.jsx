@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 
-const Chatmsg = ({ msg, avatar }) => {
+const Chatmsg = ({ msg, avatar, darkMode }) => {
     const isSent = msg.status === "sent"; // true if the msg is sent by user
     const isDelivered = msg.status === "delivered"; // true if the msg is delivered but not seen yet
     const isSeen = msg.status === "seen"; // true if the msg has been seen by the recipient
@@ -25,11 +25,10 @@ const Chatmsg = ({ msg, avatar }) => {
             {/* msg Bubble */}
             <div
                 className={`max-w-xs p-3 rounded-lg ${sentByUser
-                    ? 'bg-green-400 text-white rounded-br-none'
+                    ? `bg-green-400 rounded-br-none ${darkMode ? 'text-gray-600' : ''}`
                     : 'bg-gray-200 text-gray-800 rounded-bl-none'
-                    } ${sentByUser ? 'md:text-lg' : 'md:text-base'}`}
+                } ${sentByUser ? 'md:text-lg' : 'md:text-base'}`}
             >
-
                 <p>{msg.text}</p>
                 {msg.media && (
                 <>

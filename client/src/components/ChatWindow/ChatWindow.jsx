@@ -8,11 +8,11 @@ const ChatWindow = ({ selectedUser, toggleChatModal, isSmallScreen, darkMode }) 
 
     
     return (
-        <div className={`w-full h-screen flex flex-col border border-black`}>
-            <div className={`p-4 bg-white shadow-md flex ${darkMode && 'bg-gray-900 text-white'}`}>
+        <div className={`w-full h-screen flex flex-col border border-blue-400 rounded-3xl`}>
+            <div className={`p-4 shadow-md border-b border-green-500 flex ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
                 {isSmallScreen ? <button
                     onClick={toggleChatModal}>
-                    <FontAwesomeIcon icon={faArrowLeft} className="size-8 mr-3" />
+                    <FontAwesomeIcon icon={faArrowLeft} className="size-8 mr-3 text-black" />
                 </button> : null}
                 <img
                     src={selectedUser.avatar}
@@ -27,7 +27,7 @@ const ChatWindow = ({ selectedUser, toggleChatModal, isSmallScreen, darkMode }) 
             </div>
             <div className={`flex-1 overflow-y-auto p-4 bg-gray-50 ${darkMode && 'bg-gray-900 text-white'}`}>
                 {selectedUser.messages.map((msg) => (
-                    <ChatMessage key={msg.id} msg={msg} avatar={selectedUser.avatar} />
+                    <ChatMessage key={msg.id} msg={msg} avatar={selectedUser.avatar} darkMode={darkMode} />
                 ))}
             </div>
             <MessageInput darkMode={darkMode}/>
